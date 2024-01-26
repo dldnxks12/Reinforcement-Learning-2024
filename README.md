@@ -44,9 +44,10 @@
   
 - At human speed : DRL with action delay (2018)      
 
-      
+      Using a state-predictive model as in MBS, but based on recurrent neural network.
+       -> agent acts according to an estimate of the true state where their action will be executed. 
 
-  
+---
       
   
   
