@@ -5,7 +5,7 @@
 - Closed-loop control with delayed information (ACM 1992)
 
       *propose an 'augmented approach'
-       -> but can not scale up to stochastic delay (i.e. random delay)
+       -> but, it can not scale up to stochastic delay (i.e. random delay)
 
 ---
 
@@ -17,7 +17,7 @@
        2. reward duplication -> collect cost, once.
        3. reward discount -> use r0
   
-       -> but,  freezing of execution has a limitation of real-time systems.
+       -> but, freezing of execution has a limitation of real-time systems.
 
 ---
 
@@ -41,7 +41,7 @@
                       2) no estimation of explicit model (MBS)
   
       Disadvantages : 1) suboptimal (POMDP, resulting from delay)
-                      2)doesn't consider the delay in learning (state-dependent decision).
+                      2) doesn't consider the delay in learning (state-dependent decision).
 
       *propose 'dSARSA(λ)' (best performance among dSARSA, dSARSA(λ), dQ, and dQ(λ))
         -> improved SARSA(λ), which takes the delay into account.
@@ -77,7 +77,7 @@
        EQM is
        1) Space efficient -> better than basic augmented approach 
        2) Robust under deviation from most likely state -> better than MBS
-       3) Handles boht of constant and stochastic delays 
+       3) Handles constant and stochastic delays, both 
        
 
 
