@@ -47,10 +47,10 @@ class QNetwork(nn.Module):
 
 
 class GaussianPolicy(nn.Module): # Reparameterized actor
-    def __init__(self, state_dim, action_dim, hidden_dim, action_space=None):
+    def __init__(self, state_dim, delayed_steps, action_dim, hidden_dim, action_space=None):
         super(GaussianPolicy, self).__init__()
 
-        self.linear1 = nn.Linear(state_dim, hidden_dim)
+        self.linear1 = nn.Linear(state_dim + delayed_steps * action_dim, hidden_dim)
         self.linear2 = nn.Linear(hidden_dim, hidden_dim)
 
         self.mean_linear    = nn.Linear(hidden_dim, action_dim)
