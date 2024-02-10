@@ -1,4 +1,4 @@
-### finite MDP
+### chapter 3 : finite MDP
 
 ---
 
