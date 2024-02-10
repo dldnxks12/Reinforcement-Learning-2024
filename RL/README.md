@@ -20,3 +20,10 @@
             
             Deterministic MDP => deterministic policy
             Stochastic MDP => stochastic policy 
+
+
+      * DP vs MC vs TD
+   
+            DP : Perfect Model (o) + Bootstrapping (o)
+            MC : Perfect Model (x) + Bootstrapping (x)
+            TD : Perfect Model (x) + Bootstrapping (o)
