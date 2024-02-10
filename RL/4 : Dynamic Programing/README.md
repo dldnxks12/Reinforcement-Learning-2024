@@ -15,7 +15,6 @@
         1) Perfect Model is given.
         2) finite MDP
 
-
       >> if we find optimal v, q then we can recover optimal policy directly (i.e. greedy policy)
 
 
@@ -26,4 +25,28 @@
               Policy Evaluation >> Policy Improvement >> Policy Evaluation >> Policy Improvment >> ...
 
       # Value Iteration (Based on Bellman Optimality Eqn.)
-              (Policy Evaluation + Policy Improvement) >> (Policy Evaluation + Policy Improvement) >> ...  
+              (Policy Evaluation + Policy Improvement) >> (Policy Evaluation + Policy Improvement) >> ...
+
+
+      >> To overcome DP's problem; sweep on entire states for updating, we can turn into 'asynchronous DP' method.
+
+
+      * Synchronouse DP (Classial DP)
+
+            : Performing 'expected update' operation on each state.
+              >> updates the value of one state based on the values of all possible successor states + probabilities of occurring.
+  
+      * Asynchronouse DP
+
+            : In-place iterative methods that update states in an arbitrary order.
+
+
+
+- DP's property : Bootsrapping
+
+
+      It estimate value functions based on the basis of the other estimates.
+  
+      Therefore, DP is a method of 'bootstrapping'..!
+
+        
