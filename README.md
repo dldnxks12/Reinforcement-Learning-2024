@@ -1,4 +1,4 @@
-#### Histories
+#### Histories (constant / random)
 
 ---
 
@@ -82,7 +82,21 @@
        1) Space efficient -> better than basic augmented approach 
        2) Robust under deviation from most likely state -> better than MBS
        3) Handles constant and stochastic delays, both 
-       
+
+
+---
+
+- DIDA
+
+---
+
+- BPQL
+
+---
+
+- AD-RL
+
+---
 
 
 
