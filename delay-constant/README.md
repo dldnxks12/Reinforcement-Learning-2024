@@ -82,7 +82,13 @@
 
 ---
 
+- RTAC (constant)
 
+      # Real-Time RL (NIPS 2019)
+
+      * Proposed RTAC in 'RTRL' framework (state and action changes simultaneously).
+
+---
     
   
 

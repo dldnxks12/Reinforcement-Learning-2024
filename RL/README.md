@@ -27,3 +27,11 @@
         DP : Perfect Model (o) + Bootstrapping (o)
         MC : Perfect Model (x) + Bootstrapping (x)
         TD : Perfect Model (x) + Bootstrapping (o)
+
+
+    * Basic approaches of reducing 'overestimation bias'
+
+        1. Double Q-learning or Clipped-double Q-learning
+        2. Ensemble network
+        3. Quantile regression
+        
