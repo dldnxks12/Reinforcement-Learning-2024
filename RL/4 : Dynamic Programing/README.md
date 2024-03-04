@@ -15,37 +15,45 @@
         1) Perfect Model is given.
         2) finite MDP
 
-      >> if we find optimal v, q then we can recover optimal policy directly (i.e. greedy policy)
+      >> If we find optimal v, q then we can recover optimal policy directly (i.e. greedy policy)
 
 
 
 - Method
 
       # Policy Iteration (Based on Bellman Expectation Eqn.)
-              Policy Evaluation >> Policy Improvement >> Policy Evaluation >> Policy Improvment >> ...
+              Policy Evaluation >> Policy Improvement >> Policy Evaluation >> Policy Improvement>> ...
+
+                    * Policy Evaluation
+                          1) Using Matrix Inversion (Inverse always exist-Perron-Probenious, but this is a highly unstable method)
+                          2) Dynamic Programming: iterative method (guaranteed by contraction mapping)
+
+                    * Policy Improvement
+                          1) greedy policy
+                          2) soft-greedy policy
 
       # Value Iteration (Based on Bellman Optimality Eqn.)
               (Policy Evaluation + Policy Improvement) >> (Policy Evaluation + Policy Improvement) >> ...
 
 
-      >> To overcome DP's problem; sweep on entire states for updating, we can turn into 'asynchronous DP' method.
+      >> To overcome DP's problem (sweep entire states for updating) >> we can turn to the 'asynchronous DP' method.
 
 
-      * Synchronouse DP (Classial DP)
+      * Synchronous DP (Classical DP)
 
             : Performing 'expected update' operation on each state.
               >> updates the value of one state based on the values of all possible successor states + probabilities of occurring.
   
-      * Asynchronouse DP
+      * Asynchronous DP
 
             : In-place iterative methods that update states in an arbitrary order.
 
 
 
-- DP's property : Bootsrapping
+- DP's property: Bootstrapping
 
 
-      It estimate value functions based on the basis of the other estimates.
+      It estimates value functions based on the other estimates.
   
       Therefore, DP is a method of 'bootstrapping'..!
 
