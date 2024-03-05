@@ -2,27 +2,20 @@
 
 ---
 
-- Augmented Approach  
-
-      # Closed-loop control with delayed information (ACM 1992)
- 
-      Proposed an 'augmented approach'
-      >> but, it cannot scale up to random delay.
-
----
-
-- Augmented Approach-2
+- Augmented Approach
 
       # MDP with delays and asynchronous cost collection (IEEE TAC 2003)
 
-      Delayed MDP can be reduced to standard MDP using asynchronous cost collection.
-      
-      + It proposed an approach for random delay with 3 considerations
-         1. infinite state length >> freeze
-         2. reward duplication    >> collect cost, just once.
-         3. reward discount       >> use r0
-    
-       >> but, freezing of execution has a limitation of real-time systems.
+      DDMDP can be reduced to standard MDP using asynchronous cost collection.
+      SDMDP can also be reduced to standard MDP using asynchronous cost collection.
+      >> It proposes an approach for the random delay (accompanied by 3 considerations)
+         1. state explosion     >> freeze
+         2. cost duplication    >> collect cost, just once.
+         3. cost discount       >> use r0
+
+      >> but, this framework assumes the strong assumption of 'ordering'
+              >> the state s(t+1) can not be processed before s(t) 
+      >> Also, freezing of execution has a limitation of real-time systems.
 
 ---
 
@@ -30,7 +23,7 @@
 
       # Planning and learning in environments with delayed feedback (2007)
 
-      Augmented approach has the issue of 'state-space explosion' 
+      The augmented approach has the issue of 'state-space explosion' 
   
       * Proposed 'model-based simulation (MBS)'
       >> but, it is hard to apply to stochastic MDPs (stochastic policy).
@@ -64,7 +57,7 @@
   
 - At human speed : DRL with action delay (2018)      
 
-      Using a state-predictive model as in MBS, but based on a recurrent neural network.
+      Using a state-predictive model as MBS, but based on a recurrent neural network.
       >> Agent acts according to an estimate of the true state where their action will be executed. 
 
 ---
