@@ -38,29 +38,34 @@
                 ➔ But useful for non-stationary problems.
 
 
-        # From here : 0313
+- Initial bias
+
+
+        Sample Average
+                  ➔ No initial bias
+                  ➔ But, not practical in non-stationary problems
   
-        # Initial bias
-            ➔ Sample average     ➔ No initial bias
-            ➔ Constant step size ➔ Induce initial bias
+        Weighted Average
+                  ➔ Induce initial bias
+                  ➔ But, practical in non-stationary problems
     
-                To address the initial bias problem in non-stationary problems
-                ➔ Use Unbiased Constant Step-size Trick
+        * Address the initial bias and non-stationary problems?
+        ➔ Use Unbiased Constant Step-size Trick!
 
 
 - Upper Confidence Bound (UCB)
 
-    
-        # Why do we need to explore?
-        ➔ Exploration is crucial ➔ uncertainties about the accuracy of the action-value estimations.
-    
         # Action-selection method.
         ➔ Greedy   : No exploration
-        ➔ ε-greedy : Do exploration among the non-greedy actions, but without preference. i.e. randomly.
+  
+        ➔ ε-greedy : Do exploration among the non-greedy actions, but no preference.
+                  (i.e. randomly select actions among non-greedies)
+  
         ➔ UCB      : Select non-greedy actions according to their potential. 
-    
-                ➔ UCB is good, but it fails to work in non-stationary problems
-                    ➔ bandit problem이 아닌 일반적인 RL 문제에 사용하기엔 ε-greedy가 더 낫다.
+                
+                ➔ UCB fails to work in non-stationary problems!
+                ➔ UCB fails to work in large-state space!
+                ➔ Bandit problem이 아닌 일반적인 RL 문제에 사용하기엔 ε-greedy가 더 낫다.
     
 ---
 
