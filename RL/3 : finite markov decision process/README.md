@@ -6,10 +6,10 @@
         ➔ actions influence not just immediate rewards, but also subsequent states.
         ➔ finite MDP: the sets of states, actions, and rewards have finite elements.
         ➔ associative: choose different actions in different situations. 
-        (>> non-associative: choose optimal action in the same situation (bandits)) 
+                >> non-associative: choose optimal action in the same situation (bandits)
 
         Bandits ➔ estimate the value Q(a) of each action (a)
-        MDPs    ➔ estimate the value Q(s, a) of eacth action (a) at the state (s)
+        MDPs    ➔ estimate the value Q(s, a) of each action (a) at the state (s)
 
 ---
 
