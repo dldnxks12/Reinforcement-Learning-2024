@@ -21,8 +21,8 @@
        * Deadly-Triad : brings instability & convergence issue.
        
            1) bootstrapping (e.g. DP / TD)
-           2) off-policy    (target policy != behavior policy) 
-           3) non-linear FA (e.g. neural network)
+           2) off-policy    (e.g. Q-Learning) 
+           3) non-linear FA (e.g. Neural Network)
    
    
        * confusing MDP names
