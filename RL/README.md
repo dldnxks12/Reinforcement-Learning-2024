@@ -45,9 +45,21 @@
            TD : Perfect Model (x) + Bootstrapping (o)
    
    
-       * Basic approaches of reducing 'overestimation bias'
+       * Basic approaches for reducing 'overestimation bias'
    
            1. Double Q-learning or Clipped-double Q-learning
            2. Ensemble network
            3. Quantile regression
+
+      * Optimal Policy
+
+            * DP (Policy Iteration / Value Iteration)
+            >> We can always find the optimal policy in MDP with a greedy improvement policy.
+
+            * MC
+            >> We can find the optimal policy in MDP (verify further in the future).
+
+            * TD
+            >> JW said, TD can not guarantee to find the optimal policy in MDP.
+  
            
