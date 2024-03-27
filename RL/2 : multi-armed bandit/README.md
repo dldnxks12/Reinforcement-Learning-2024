@@ -4,7 +4,7 @@
 
 - k-armed bandit 
 
-        # action-value estimation: simple average (Q(a) will converge to true Q(a) as n ➔ ∞)
+        # action-value estimation: simple average ( Q(a) will converge to true Q(a) as n ➔ ∞ )
         ➔ 'Sample Average' Method
   
         # action-selection: greedy ➔ exploitation only... we need 'exploration'...!  
@@ -13,7 +13,7 @@
 
 - Incremental update
 
-        # simple average를 사용할 때, 모든 데이터들을 메모리에 저장해두었다가 계산하는 건 too expensive (memory/computation)
+        # Sample Average를 사용할 때, 모든 데이터들을 메모리에 저장해두었다가 계산하는 건 too expensive (memory/computation)
         ➔ use 'incremental update' 
             ➔ Q(n+1) = Q(n) + (1/n)[R(n) - Q(n)]
             ➔ New-estimation = Old-estimation + Step-size[Target - Old-estimation]
@@ -25,17 +25,18 @@
                 *In Bandit : reward probabilities
                 *In MDP    : reward probabilities and transition kernel.
   
-        ➔ so.. let's give weight to the recent reward!
-            ➔ Use a constant step size (α) ➔ i.e. Q(n+1) = Q(n) + (α)[R(n) - Q(n)], where α is constant.
-            (It naturally replaces the 'Sample Average' ➔ 'Weighted Average')
+          ➔ so.. let's give weight to the recent reward!
+              ➔ Use a constant step size (α) ➔ i.e. Q(n+1) = Q(n) + (α)[R(n) - Q(n)], where α is constant.
+              (It naturally replaces the 'Sample Average' ➔ 'Weighted Average')
     
         # Conditions of step size, required to converge ➔ Robbins-Monro Rule
-        ➔ Sample Average (1/n): meets Robbins-Monro ➔ converge (Law of Large Number)
-                ➔ But it is slow and difficult to fine-tune
-                        ➔ Used in theoretical works.
-                        ➔ Not useful in practice (application / empirical research).
-        ➔ Weighted Average (α): violates Robbins-Monro ➔ not converge
-                ➔ But useful for non-stationary problems.
+
+          ➔ Sample Average (1/n): meets Robbins-Monro ➔ converge (Law of Large Number)
+                  ➔ But it is slow and difficult to fine-tune
+                          ➔ Used in theoretical works.
+                          ➔ Not useful in practice (application / empirical research).
+          ➔ Weighted Average (α): violates Robbins-Monro ➔ not converge
+                  ➔ But useful for non-stationary problems.
 
 
 - Initial bias
@@ -66,6 +67,11 @@
                 ➔ UCB fails to work in non-stationary problems!
                 ➔ UCB fails to work in large-state space!
                 ➔ Bandit problem이 아닌 일반적인 RL 문제에 사용하기엔 ε-greedy가 더 낫다.
+    
+                * Improved version of UCB
+                  ➔ UCB 1  (if we dont have a prior knowledge about reward distribution)
+                  ➔ KL-UCB (if we have a prior knowledge about reward distribution)
+            
     
 ---
 

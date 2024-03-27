@@ -54,12 +54,12 @@
       * Optimal Policy
 
             * DP (Policy Iteration / Value Iteration)
-            >> We can always find the optimal policy in MDP with a greedy improvement policy.
+              >> We can always find the optimal policy in MDP with a greedy improvement policy.
 
             * MC
-            >> We can find the optimal policy in MDP (verify further in the future).
+              >> We can find the optimal policy in MDP (verify further in the future).
 
             * TD
-            >> JW said, TD can not guarantee to find the optimal policy in MDP.
+              >> JW said, TD can not guarantee to find the optimal policy in MDP.
   
            
