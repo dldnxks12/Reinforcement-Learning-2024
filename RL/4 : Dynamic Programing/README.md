@@ -4,18 +4,17 @@
 
 - Dynamic Programming
 
+      A collection of algorithms that can be used to compute optimal policies, given a perfect model (MDP)
 
-      A collection of algorithms that can be used to compute optimal policies given a perfect model (MDP)
+      * Assumption in DP
+        1) Perfect Model; p(s', r | s, a), is given.
+        2) finite MDP 
 
-      # Limitation in utility
-        1) A perfect model; p(s', r | s, a), is needed
-        2) great computational expense
+      * Limitation
+              1) A perfect model; p(s', r | s, a), is needed
+              2) Intractable in inifinite MDP
 
-      # Typical assumption in DP
-        1) Perfect Model is given.
-        2) finite MDP
-
-      >> If we find optimal v, q then we can recover optimal policy directly (i.e. greedy policy)
+      If we find optimal v(π) and q(π), then we can get optimal policy π, directly (i.e. greedy policy).
 
 
 
