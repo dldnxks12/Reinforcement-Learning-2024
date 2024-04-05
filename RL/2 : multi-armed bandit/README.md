@@ -49,6 +49,8 @@
         Weighted Average
                   ➔ Induce initial bias
                   ➔ But, practical in non-stationary problems
+                    ➔ s.t. changing policy 
+                    ➔ s.t. changing reward distribution
     
         * Address the initial bias and non-stationary problems?
         ➔ Use Unbiased Constant Step-size Trick!

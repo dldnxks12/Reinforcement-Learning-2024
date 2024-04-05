@@ -40,12 +40,12 @@
           ➔ We can get monotonically improving π and v.
             ➔ this guarantees to converge to the optimal π and optimal v.
   
-        * Policy Evaluation : v
+        * Policy Evaluation : v(k) ➔ v(k+1) 
               ➔ Iterative policy evaluation
-                ➔ v(π) exist and is unique (c.f., Ok's lecture)
                 ➔ v(k) converges to v(π), as k ➔ ∞
+                ➔ v(π) exist and is unique (c.f., Ok's lecture)
 
-        * Policy Improvement : π
+        * Policy Improvement : π(k) ➔ π(k+1)
               ➔ greedy policy (meets policy improvement theorem)
               ➔ soft-greedy policy (meets policy improvement theorem)
 
