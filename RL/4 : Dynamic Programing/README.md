@@ -29,8 +29,6 @@
           1) A perfect model; p(s', r | s, a), is needed
           2) Intractable in inifinite MDP
 
-        If we find optimal v(π) and q(π), then we can get optimal policy π, directly (i.e. greedy policy).
-
 ---
 
 - GPI
@@ -61,6 +59,30 @@
 
       RL은 GPI framework를 따른다. 
       DP를 이용한 GPI는 convergence가 증명이 되어있다. 하지만, 다른 방법을 이용한 GPI는 아직...
+
+      *************************************************************************
+
+
+
+---
+
+- Convergence of Policy Iteration and Value Iteration
+
+
+
+      *************************************************************************
+
+      Bellman Operator B is a 'Contraction Mapping'. 
+          ➔ Contraction Mapping implies..
+            1) Convergence 
+            2) Uniqueness
+
+      But, the converged point is the optimal point?
+      No! we need greedy improvement policy such as 'greedy policy' 
+          ➔ 'Monotonic Improvement Condition'!
+
+      * PI and VI with 'greedy improvement' always find optimal policy!
+          ➔ it is thanks to 'Markov Property' in MDP 
 
       *************************************************************************
 
