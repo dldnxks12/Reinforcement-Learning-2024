@@ -51,6 +51,7 @@
     
     ➔ It increases the computational burden, but decrease the variance!
 
+
 - Convergence of SARSA
 
 
