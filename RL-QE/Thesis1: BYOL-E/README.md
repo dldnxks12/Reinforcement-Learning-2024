@@ -7,14 +7,14 @@
 - Abstract
 
 
-            BYOL-Explore ...
-                ➔ curiosity-driven exploration method. 
+            BYOL-Explore ?
+                ➔ curiosity-driven exploration method
                 ➔ for visually-complex Env.
 
-            BYOL-Explore learns...
+            BYOL-Explore learns ?
                 ➔ World representation
                 ➔ World dynamics
-                ➔ exploration policy
+                ➔ Exploration policy
 
                 by optimizing a 'single' loss in the latent space.
 
