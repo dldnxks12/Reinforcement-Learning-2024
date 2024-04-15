@@ -2,7 +2,7 @@
 
 ----
 
-- Brief sumamry
+- Brief summary
 
 
       # 1 line sumamry 
