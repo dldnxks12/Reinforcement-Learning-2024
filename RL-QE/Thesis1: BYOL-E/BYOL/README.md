@@ -1,8 +1,7 @@
 #### BYOL
 
-- Brief Sumamry (10줄 이내)
+- Bootstrap Your Own Latent (BYOL)
 
 ----
 
-
-
+- Brief Summary
