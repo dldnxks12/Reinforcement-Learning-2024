@@ -7,17 +7,35 @@
 
             BYOL-Explore ?
                 ➔ curiosity-driven exploration method for visually-complex Env.
+                ➔ Simple and High Performance. 
 
             BYOL-Explore learns ?
                 ➔ World representation (Representation Learning : BYOL)
                 ➔ World dynamics (World Model)
                 ➔ Exploration policy (Curiosity-driven exploration)
 
-                by optimizing a 'single' loss in the latent space.
+                by optimizing a 'single' loss.
+
+                BYOL-E learns a World Model's representation based on a self-supervised prediction loss.
+                BYOL-E trains a curiosity-driven policy with the 'same' loss.
+
+                That is... BYOL-E uses the world model's loss to drive exploration!
+                ➔ we can solve both the problems of building world model and curiosity-driven policy with a single objective function!!
+
+
+
+            * Experiment on DM-HARD-8 tasks
+                ➔ need efficient exploration
+                    ➔ in order to reach the goal and get the reward, 
+                    they require completing a sequence of prcise, orderly interactions with the physical objects in the Env. 
+                
+
 
             Additional method used for solving visually-complex Env.
                 ➔ extrinsic reward + BYOL's intrinsic reward.
 
+                ➔ Intrinsic reward
+                    ➔ made from residuals between World Model's prediction and real data
 
             
             * Three types of reward
