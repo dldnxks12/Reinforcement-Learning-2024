@@ -14,8 +14,6 @@
                 a method for learning policies that can maintain exploration throughout the training process. 
                 ➔ In Depth-First-Search (DFS) mannar
 
-
-
             * preliminaries * 
 
             1) Problems in exploration and limitations   
