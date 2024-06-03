@@ -17,6 +17,7 @@
         ➔ use 'incremental update' 
             ➔ Q(n+1) = Q(n) + (1/n)[R(n) - Q(n)]
             ➔ New-estimation = Old-estimation + Step-size[Target - Old-estimation]
+            ➔ Q(n), (n), R(n)의 값만 저장해면 됨!
     
 
 - Non-stationary problem 
