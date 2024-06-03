@@ -42,40 +42,32 @@
 
 - Initial bias
 
-
-        Sample Average
-                  ➔ No initial bias
-                  ➔ But, not practical in non-stationary problems
+        Sample Average ➔ No initial bias
   
-        Weighted Average
-                  ➔ Induce initial bias
-                  ➔ But, practical in non-stationary problems
-                    ➔ s.t. changing policy 
-                    ➔ s.t. changing reward distribution
+        Weighted Average ➔ Induce initial bias
     
         * Address the initial bias and non-stationary problems?
-        ➔ Use Unbiased Constant Step-size Trick!
+                ➔ Use 'unbiased constant step-size trick'!
 
 
 - Upper Confidence Bound (UCB)
 
         # Action-selection method.
-        ➔ Greedy   : No exploration
   
-        ➔ ε-greedy : Do exploration among the non-greedy actions, but no preference.
-                  (i.e. randomly select actions among non-greedies)
-  
-        ➔ UCB      : Select non-greedy actions according to their potential. 
-                
-                ➔ UCB fails to work in non-stationary problems!
-                ➔ UCB fails to work in large-state space!
-                ➔ Bandit problem이 아닌 일반적인 RL 문제에 사용하기엔 ε-greedy가 더 낫다.
-    
+                ➔ Greedy   : Select greedy one  
+                ➔ ε-greedy : Select greedy one, but sometimes get non-greedy actions 'with no preference'.  
+                ➔ UCB      : Select actions according to their potential. 
+
+        # Limitation of UCB
+
+                ➔ fails to work in non-stationary problems!
+                ➔ fails to work in large state space!
+                ➔ Bandit이 아닌 RL에 사용하기엔 ε-greedy가 더 낫다.
+        
                 * Improved version of UCB
                   ➔ UCB 1  (if we dont have a prior knowledge about reward distribution)
                   ➔ KL-UCB (if we have a prior knowledge about reward distribution)
-            
-    
+        
 ---
 
     
