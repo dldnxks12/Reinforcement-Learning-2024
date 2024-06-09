@@ -2,77 +2,68 @@
 
 ---
 
+- Recap. value function and Bellman Eqns.
+
+  
+      We can find v(s) and v*(s) by solving BEE and BOE.
+
+      v(s)  ➔ BEE ➔ directly solve 'system of linear equation'
+      v*(s) ➔ BOE ➔ directly solve 'system of non-linear equation'
+
+      근데, Bellman equation을 direct하게 풀어내는 것은 일반적으로 많은 어려움이 있다.  
+      SO, v(s) and v*(s)를 Bellman equation의 stochastic approximation으로 구하자.
+  
+      ➔ 'Dynamic Programming'
+        
+      * Assumptions in DP
+      1) Perfect Model; p(s', r | s, a), is given.
+      2) finite MDP 
+     
+      * Limitation
+      1) A perfect model; p(s', r | s, a), is needed
+      2) Intractable in inifinite MDP
+
+
 - Dynamic Programming
 
-      *******************************************************************************
 
-      We find value function / optimal value function by solving Bellman Equations.
+      Dynamic Programming is 'iteration based stochastic approximation method'.
 
-      v(π) ➔ Bellman Equation ➔ solve 'system of linear equation'
-      v(*) ➔ Bellman Optimality Equation ➔ solve 'system of non-linear equation'
-
-        * optimal value function 찾으면 optimal policy는 easy하게 찾아진다. (e.g., greedy)
-
-      MDP dynamics; p가 주어져있다면, 그냥 이렇게 푸는게 straightforward.
-      근데, computational burden + instability 문제가 있으니 iterative 하게 풀어보자 ➔ 'DP'
-
-        * Instability issue : Matrix Inversion
+      (1) Policy Iteration (Based on BEE) 
       
-      *******************************************************************************
-
-
-        * Assumptions in DP
-          1) Perfect Model; p(s', r | s, a), is given.
-          2) finite MDP 
-
-        * Limitation
-          1) A perfect model; p(s', r | s, a), is needed
-          2) Intractable in inifinite MDP
-
----
-
-- GPI
-
-      [1] Policy Iteration (Based on Bellman Eqn.) 
+        = Policy evaluation ➔ Policy improvement 반복
       
-        = Policy Evaluation ⮂ Policy Improvement
+      (2) Value Iteration (Based on BOE)
 
-          ➔ We can get monotonically improving π and v.
-            ➔ this guarantees to converge to the optimal π and optimal v.
+        = (Policy evaluation + Policy improvement) 반복
+
+
+      * Policy Evaluation : v(k) ➔ v(k+1) 
+        ➔ Iterative policy evaluation
+        ➔ v(k) converges to v(π), as k ➔ ∞
+        ➔ v(π) exist and is unique (c.f., Ok's lecture)
+     
+      * Policy Improvement : π(k) ➔ π(k+1)
+        ➔ greedy policy (meets policy improvement theorem)
+        ➔ soft-greedy policy (meets policy improvement theorem)
+
+
+- Convergence of Dynamic Programming 
+
+
+      *************************************************************************
+      * Convergence to optimal policy
   
-        * Policy Evaluation : v(k) ➔ v(k+1) 
-              ➔ Iterative policy evaluation
-                ➔ v(k) converges to v(π), as k ➔ ∞
-                ➔ v(π) exist and is unique (c.f., Ok's lecture)
+      이 iteration들은 contraction mapping이다.
+        ➔ unique solution 보장.
+      이 iteration들은 monotonic improvment를 보장한다.
+        ➔ optimal solution을 보장.
 
-        * Policy Improvement : π(k) ➔ π(k+1)
-              ➔ greedy policy (meets policy improvement theorem)
-              ➔ soft-greedy policy (meets policy improvement theorem)
-
-      
-      [2] Value Iteration (Based on Bellman Optimality Eqn.)
-
-        = (Policy Evaluation + Policy Improvement) ⮂ (Policy Evaluation + Policy Improvement)
-
-
+      즉, 이 iteration들을 계속하면 optimal π 그리고 optimal v로 수렴.  
       *************************************************************************
 
-      RL은 GPI framework를 따른다. 
-      DP를 이용한 GPI는 convergence가 증명이 되어있다. 하지만, 다른 방법을 이용한 GPI는 아직...
-
       *************************************************************************
-
-
-
----
-
-- Convergence of Policy Iteration and Value Iteration
-
-
-
-      *************************************************************************
-
-      Bellman Operator B is a 'Contraction Mapping'. 
+      * Bellman Operator B is a 'Contraction Mapping'.  
           ➔ Contraction Mapping implies..
             1) Convergence 
             2) Uniqueness
@@ -86,11 +77,19 @@
 
       *************************************************************************
 
+      *************************************************************************
 
----
+      RL은 GPI framework를 따른다. 
+      DP를 이용한 GPI는 convergence가 증명이 되어있다. 하지만, 다른 방법을 이용한 GPI는 아직...
 
-- Drawbacks
+      *************************************************************************
 
+
+- Limitations of Dynamic Programming
+
+      1) Need to know dynamics (model); p
+      2) Great computational burdens
+ 
       The major drawback of DP is... they need to sweep entire states for updating.
         ➔ to overcome this, we can employ the 'asynchronous DP' method
 
@@ -106,10 +105,3 @@
 
 ---
 
-- DP's property: Bootstrapping
-
-      It estimates value functions based on the other estimates.
-  
-      Therefore, DP is a method of 'bootstrapping'..!
-
-        
