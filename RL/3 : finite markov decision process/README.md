@@ -23,58 +23,76 @@
         ➔ r(s, a)      : the expected rewards for (state - action) pairs
         
 
+
+- Key notes of Bellman Equations (quick summary)
+
+        1. v(s) = E[Gt|st]를 recursive하게 표현한 식?
+                = E[Rt+1 + γv(St+1)|st] = Bellman Equation !
+                  
+        2-1. v(s)는 Bellman Equation의 유일한 해 (Unique solution)
+        2-2. v*(s)는 Bellman Optimal Equation의 유일한 최적해 (Unique solution & Optimal solution)  
+
+        3. 우리는 Bellman Equation들을 걍 다이렉트하게 풀어버릴 수도 있다.
+  
+        ➔ Bellman Equation은 system of linear equation이므로 Matrix Inversion 이용해서.
+        하지만 this is not 만만...
+  
+        SO, 아래의 세 가지 방법을 이용해서 v(s)를 찾아내는 방법을 자주 사용한다.
+        ➔ Dynamic Programming 
+        ➔ Monte Carlo
+        ➔ Temporal Difference 
+
+        '위 세 가지 방법을 Bellman Equation의 stochastic approximation이라고 한다.'
+
+
 - Bellman Equations (Expection / Optimal)
         
-        Markovian property에 이은, RL의 또하나의 fundamental한 property?
-        Value function과 Q function이 Bellman Equation들을 만족한다는 것.
-
-        # Bellman Expectation Equation
+        (1) Bellman Expectation Equation
   
-        v(π) and q(π) can be expressed in recursive form ! (Self-Consistency)
+        v(s) and q(s,a) can be expressed in recursive form.
         이 recursive form이 바로 'Bellman Equation'이다!
-        ➔ Bellman Equation is a 'system of linear equation'.
+        그리고, Bellman Equation은 'system of linear equation'이다.
  
-        If we know the MDP dynamics; p, 
-        we can find v(π) and q(π) by solving this 'system of linear equations'.
-          ➔ ex1. Matrix Inversion (this approach is quite not favorable due to the instability) 
-          ➔ ex2. Iterative method (Dynamic Programming)
+        We can find v(s) and q(s,a) by solving this 'system of linear equations'.
+        ➔ by Matrix Inversion !
+        ➔ but this approach is quite not favorable due to the instability.
 
 
-        # Bellman Optimality Equation
+        (2) Bellman Optimality Equation
 
-        The v*(π) and q*(π) can also be expressed in recursive form ! (Self-Consistency)
-        This form is 'Bellman Optimality Equation'!
-        ➔ Bellman Optimality Equation is a 'system of non-linear equation'.
-            (n states unknown ➔ n equations unknown)
+        The v*(s) and q*(s) can also be expressed in recursive form.
+        이 식은 'Bellman Optimality Equation'!  
+        Bellman Optimality Equation도 역시 'system of non-linear equation'이다.
       
-        If we know the MDP dynamics; p,
-        we can find v* and q* by solving this 'system of non-linear equations'.
-
+        We can find v*(s) and q*(s,a) by solving this 'system of non-linear equations'.
+  
         If we get v* and q*, then we can find optimal policy straight-forwardly!
-          ➔ v* is known ➔➔ do one-step search for finding optimal policy.
-          ➔ q* is known ➔➔ we don't need to do one-step search!
-            ➔ We can find out the optimal policy without knowing the MDP dynamics p!
+        왜? 최적의 value들을 찾았으니, 이를 바탕으로 행동을 결정하면 됨. 당연한 것.
+        SO?
+        ➔ v* 를 찾았을 때, do one-step search for finding optimal policy. (select greedy action)
+        ➔ q* 를 찾았을 때, we don't need to do one-step search!    
 
         
-        ***************************************************************************************************************
-        * Bellman Optimality Equation (BOE)을 풀면 Optimal Policy를 찾을 수 있다. *
+        ***************************************************************************************************
+
+        * Bellman Optimality Equation (BOE)을 풀면 Optimal Policy를 찾을 수 있다.
+          (BOE를 푼다 == BOE를 만족시키는 v*, q*를 구한다.)
+  
           즉, 강화학습 문제가 풀리는 것이다. 
 
-              * BOE를 푼다 == BOE를 만족시키는 v*, q*를 구한다.
-
           하지만, 당연히 쉽지 않겠지? BOE를 explicit하게 풀려면 다음과 같은 세 가지 가정을 충족해야한다.
-            1) MDP dynamics is given 
+            1) MDP dynamics; p 를 알아야한다. 
             2) Sufficient computational resources 
             3) the states have 'Markov Property' (Markovian state)
 
-        따라서, 우리는 BOE를 explicit하게 푸는 것 대신 approximate solution을 찾아낸다. (ex. Dynamic Programming)
-        (Most of the methods can be viewed as ways of approximately solving this Bellman Optimality Equation.)
-        ***************************************************************************************************************
+        일반적으로, 3)은 만족이 되는데, 1), 2)가 만족이 안된다. 
+        그래서, 우리는 BOE를 explicit하게 푸는 것 대신 BEO의 stochastsic approximation을 통해 solution을 찾아낸다.
+        (ex. Dynamic Programming, Monte Carlo, Temporal Difference)
+
+        ***************************************************************************************************
 
 ---
 
-
-- Optimality and Approximation
 
 
 
