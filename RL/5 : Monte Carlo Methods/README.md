@@ -65,13 +65,33 @@
       Policy improvement를 위해서는 given policy에 대한 정확한 q 값이 필요.
       그리고 다시 말하지만, 정확한 q를 위해서는 아래의 두 방법을 사용한다.
 
-      1) Use greedy policy + exploring starts
+      1) Use greedy policy + exploring starts (ES)
       2) Use soft-greedy policy
     
       이를 통해 정확하게 추정된 q가 있어야 optimal policy를 찾아낼 수 있다.
 
 
 - Monte Carlo Control : Off-policy prediction
+
+
+      # problem 1)
+      q value를 기반으로 policy improvement를 하려면 exploration을 해야한다.
+      따라서, ES를 이용하는데, 이게 일반적으로 적용하기 힘든 방법이다.
+      (Random 리스폰을 기반으로 하기에, 환경과 actual intraction을 한다면 적용이 힘듦)
+
+      ➔ 이에 대한 대안으로, soft greedy를 이용할 수 있다.
+
+      # problem 2) 우리는 optimal한 행동들을 기반으로한 q value를 얻고 싶다.
+      근데, exploration을 해야하니, non-optimal한 행동들도 섞어서 하고 있다.
+  
+      즉,
+       1) on policy Monte Carlo + ES
+       2) on policy Monte Carlo + soft-greedy
+
+      들을 이용하는 방법은 optimal policy가 아니라, exploration을 계속 하는 near-optimal policy를 구한 것이다..!
+      그러면, exploration은 exploration 대로 하고, q value는 optimal한 행동들을 기반으로 추정할 수 없을까?
+
+      ➔ off-policy 도입!
 
 
       * On-policy vs Off-policy
