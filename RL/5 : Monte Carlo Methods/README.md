@@ -2,17 +2,29 @@
 
 ---
 
-- Monte Carlo methods properties
+- Quick Summary of MC 
 
-      * Assumptions in MC
-        1) Perfect Model; p(s', r | s, a), is unknown
+      * Just as DP, MC 방법도 optiaml policy를 보장한다. *
 
-      * Limitation in MC 
-        Only in episodic tasks.
+      Assumptions in MC
+      - Perfect Model; p(s', r | s, a), is unknown
 
----
+      Limitation in MC 
+      - only in episodic tasks.
+
+      MC Methods is also in GPI framework
+      - Prediction (policy evaluation)
+            - First visit
+            - Every visit
+  
+      - Control (policy improvement)
+            - greedy + exploration starts
+            - soft-greedy       
+  
 
 - Monte Carlo Prediction (first-visit MC / every-visit MC)
+
+      # Policy evaluation step #
 
       * DP vs MC
   
@@ -25,31 +37,38 @@
 
 
       * Advantages of MC over DP.
-        ➔ The estimation for each state is independent of other states (unlike DP).
-          ➔ The estimation for one state does not build upon the estimation of any other state.
-            ➔ That is, MC is not bootstrapping.
-              ➔ The computational complexity of estimating v, q is independent to the number of states!
+  
+        The estimation for each state is independent of other states (unlike DP).
+        ➔ The estimation for one state does not build upon the estimation of any other state.
+        ➔ No bootstrapping
+        ➔ The computational complexity of estimating v, q is independent to the number of states!
 
 
       * estimate v? or estimate q?
 
-        Under the GPI framework, we need to improve the policy over approximated v/q.
-        For this, it is better to estimate q 
+        Under the GPI framework, we need to improve the policy over approximated v or q.
+        이를 위해서는 q를 추정하는게 더 낫다.
+        왜? v를 추정하게 되면 policy improvement할 때, transition probability 정보가 필요.. 
             
-            ➔ However, we have to ensure that all the state-action pairs have a non-zero visitation probability.
-                ➔ Use 1. exploring starts + greedy policy  
-                ➔ Use 2. soft-greedy policy
+        근데, q를 추정하면 문제가 하나 발생한다.
+        즉, 모든 state-action pair들이 다 충분히 많이 sampling되어야한다는 것.
+  
+        SO?
+        1) Use greedy policy + exploring starts
+        2) Use soft-greedy policy
 
-
----
 
 - Monte Carlo Control
 
-      Policy improvement step 
+      # Policy improvement step #
 
-      ➔ It requires assurance of visitation to find optimal policy when we work with q-function.
-        ➔ Use 1. exploring starts + greedy policy  
-        ➔ Use 2. soft-greedy policy
+      Policy improvement를 위해서는 given policy에 대한 정확한 q 값이 필요.
+      그리고 다시 말하지만, 정확한 q를 위해서는 아래의 두 방법을 사용한다.
+
+      1) Use greedy policy + exploring starts
+      2) Use soft-greedy policy
+    
+      이를 통해 정확하게 추정된 q가 있어야 optimal policy를 찾아낼 수 있다.
 
 
 - Monte Carlo Control : Off-policy prediction
