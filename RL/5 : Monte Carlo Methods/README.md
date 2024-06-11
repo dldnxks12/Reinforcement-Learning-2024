@@ -124,6 +124,11 @@
           we required that every action taken under target policy is also taken under behavior policy. 
 
 
+      * importance sampling
+
+        1) ordinary importance sampling (varince)
+        2) weighted importance sampling (bias) ➔ preferred!
+
 
   
 
