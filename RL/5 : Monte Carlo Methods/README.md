@@ -4,23 +4,33 @@
 
 - Quick Summary of MC 
 
-      * Just as DP, MC 방법도 optiaml policy를 보장한다. *
+      * DP 처럼 MC 도 optiaml policy를 보장한다. *
 
-      Assumptions in MC
-      - Perfect Model; p(s', r | s, a), is unknown
-
-      Limitation in MC 
-      - only in episodic tasks.
-
-      MC Methods is also in GPI framework
-      - Prediction (policy evaluation)
-            - First visit
-            - Every visit
+      * Assumptions in MC
   
-      - Control (policy improvement)
-            - greedy + exploration starts
-            - soft-greedy       
+           - Perfect Model; p(s', r | s, a), is unknown
+
+      * Limitation in MC
   
+           - only in episodic tasks.
+
+      * MC Methods is also in GPI framework
+  
+           - Prediction (policy evaluation)
+                 - First visit
+                 - Every visit
+       
+           - Control (policy improvement)
+                 - greedy + exploration starts
+                 - ϵ-greedy
+
+      * Near-optimal? introduce off-policy !!
+    
+           - On-policy MC with ϵ-greedy  ➔ get near-optimal policy
+           - Off-policy MC with ϵ-greedy ➔ get optimal policy
+  
+
+--- 
 
 - Monte Carlo Prediction (first-visit MC / every-visit MC)
 
@@ -54,8 +64,11 @@
         즉, 모든 state-action pair들이 다 충분히 많이 sampling되어야한다는 것.
   
         SO?
-        1) Use greedy policy + exploring starts
-        2) Use soft-greedy policy
+        1) Use greedy policy + exploring starts (ES)
+        2) Use ϵ-greedy policy
+
+            * ϵ-greedy is a family of soft-policy
+              ϵ-greedy is a soft-policy that is close to greedy.
 
 
 - Monte Carlo Control
@@ -66,33 +79,38 @@
       그리고 다시 말하지만, 정확한 q를 위해서는 아래의 두 방법을 사용한다.
 
       1) Use greedy policy + exploring starts (ES)
-      2) Use soft-greedy policy
+      2) Use ϵ-greedy policy
     
       이를 통해 정확하게 추정된 q가 있어야 optimal policy를 찾아낼 수 있다.
 
+      * greedy policy 뿐만 아니라, ϵ-greedy policy도 monotonic improvment가 보장된다.
 
-- Monte Carlo Control : Off-policy prediction
+---
+
+- Off-policy prediction
 
 
       # problem 1)
+  
       q value를 기반으로 policy improvement를 하려면 exploration을 해야한다.
       따라서, ES를 이용하는데, 이게 일반적으로 적용하기 힘든 방법이다.
       (Random 리스폰을 기반으로 하기에, 환경과 actual intraction을 한다면 적용이 힘듦)
 
-      ➔ 이에 대한 대안으로, soft greedy를 이용할 수 있다.
+      ➔ 이에 대한 대안으로, soft greedy policy 를 이용할 수 있다.
 
-      # problem 2) 우리는 optimal한 행동들을 기반으로한 q value를 얻고 싶다.
+      # problem 2)
+  
+      우리는 optimal한 행동들을 기반으로한 q value를 얻고 싶다.
       근데, exploration을 해야하니, non-optimal한 행동들도 섞어서 하고 있다.
   
       즉,
-       1) on policy Monte Carlo + ES
-       2) on policy Monte Carlo + soft-greedy
+      1) on policy Monte Carlo + greedy policy + ES
+      2) on policy Monte Carlo + ϵ-greedy policy 
 
-      들을 이용하는 방법은 optimal policy가 아니라, exploration을 계속 하는 near-optimal policy를 구한 것이다..!
-      그러면, exploration은 exploration 대로 하고, q value는 optimal한 행동들을 기반으로 추정할 수 없을까?
+      를 이용하는 방법들은 optimal policy가 아니라, exploration을 계속 하는 'near-optimal policy'를 구한 것이다..!
+      그러면, exploration은 exploration 대로 하면서, q value는 optimal한 행동들을 기반으로 추정할 수 없을까?
 
-      ➔ off-policy 도입!
-
+      ➔ 'off-policy' 도입!
 
       * On-policy vs Off-policy
 
@@ -106,14 +124,6 @@
           we required that every action taken under target policy is also taken under behavior policy. 
 
 
-      How can we learn about the optimal policy, while behaving according to an exploratory policy?
-
-      Actually, 'on-policy' learning is a compromise..
-      ➔ It learns q-functions not for the optimal policy, but for a near-optimal policy that still explores!!
-
-      Instead, we can use two policies for learning optimal policy while exploring
-        ➔ one is for learning (target policy), and the other is for exploring (behavior policy)!
-        ➔ This is an 'off-policy' learning.
 
   
 
