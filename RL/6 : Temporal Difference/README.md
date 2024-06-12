@@ -5,35 +5,39 @@
 - MC vs TD
 
 
-    MC and TD are all stochastic approximation of true value
-    i.e., V(s) = E[Gt | St=s] = E[r + γV(s') | St=s] 
+      MC and TD 둘 다 stochastic approximation of Bellman Eqns.  
+      * Bellman Eqn. : Q(s, a) = E[Gt | St=s, At=a] = E[r + γQ(s', a') | St=s, At=a]
 
-    * Monte Carlo: V(s) ⭠ V(s) + α[Gt - V(s)]
+      # Monte Carlo
 
-        Update target : Gt
-        ➔ Error is not propagated (Each value estimation is independent)
-        ➔ MC can be guaranteed to be converged to optimal value
+          Q(s, a) = E[Gt | St=s, At=a] 를 stochastic하게 근사
+  
+          Q(s, a) ← Q(s, a) + α[Gt - Q(s, a)]
+      
+          ➔ Error is not propagated (no bootstrapping)
+          ➔ Bias가 없어서, optimal policy를 찾을 수 있음 (off-policy MC)
+          ➔ Variance가 커서 수렴이 늦음.
+            
+      # Temporal Difference 
 
-    * Temporal Difference: V(s) ⭠ V(s) + α[r+γV(s') - V(s)]
+          1) SARSA (BEE 근사)
+          Q(s, a) = E[r + γQ(s', a') | St=s, At=a] 를 stochastic하게 근사
+  
+          Q(s, a) ← Q(s, a) + α[r+γQ(s', a') - Q(s, a)]
 
-        Update target : r + γV(s')
-        ➔ Error is propagated
-
-    and... TD also can be guaranteed to be converged to optimal value?????
-
-
-    *************************************************************************
-
-    MC는 TD와 달리 bias가 없어서 optimal optimal policy를 찾을 수 있다.
-    TD는 MC에 비해 variance가 낮아서 빠르게 수렴하지만, bias가 있어 optimal을 보장하지 못한다.
-
-    *************************************************************************
+          2) Q learning (BOE 근사)
+          Q(s, a) = E[r + γmaxQ(s', A) | St=s, At=a] 를 stochastic하게 근사
+  
+          Q(s, a) ← Q(s, a) + α[r+γmaxQ(s', A) - Q(s, a)]
+          
+          ➔ Error is propagated (bootstrapping)
+          ➔ Bias가 있어서 optimal policy를 보장 못함.  
+          ➔ 대신, variance가 작아서 빠르게 어떤 값으로 수렴은 함.
 
 
 --- 
 
 - On-policy TD control : SARSA
-
 
 
     SARSA : Stochastic approximation of Bellman Equation.
