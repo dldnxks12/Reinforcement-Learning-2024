@@ -17,15 +17,18 @@
        
            1) Discrete MDP (finite MDP) vs Continuous MDP (infinite MDP)
            
-               Discrete MDP   => the state, action, and reward sets are finite (discrete)
-               Continuous MDP => the state, action, and reward are infinite (continuous)
+               Discrete MDP   ➔ the state, action, and reward sets are finite (discrete)
+               Continuous MDP ➔ the state, action, and reward are infinite (continuous)
            
            2) Deterministic MDP vs Stochastic MDP
                
-               Deterministic MDP => deterministic policy
-               Stochastic MDP    => stochastic policy
+               Deterministic MDP ➔ deterministic policy
+               Stochastic MDP    ➔ stochastic policy
 
-           
+           3) Non-stationary MDP ➔ dynamics change over time               
+  
+               In Bandit : reward probabilities
+               In MDP    : reward probabilities and transition kernel.
 ---
 
 
