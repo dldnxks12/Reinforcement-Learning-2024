@@ -4,15 +4,10 @@
 
 - Quick Summary of MC 
 
-      * DP 처럼 MC 도 optiaml policy를 보장한다. *
+      * Assumptions in DP and MC
 
-      * Assumptions in MC
-  
-           - Perfect Model; p(s', r | s, a), is unknown
-
-      * Limitation in MC
-  
-           - only in episodic tasks.
+           - DP : Perfect Model; p(s', r | s, a) is known
+           - MC : Perfect Model; p(s', r | s, a) is unknown
 
       * MC Methods is also in GPI framework
   
@@ -21,15 +16,23 @@
                  - Every visit
        
            - Control (policy improvement)
-                 - greedy + exploration starts
+                 - greedy + ES (일반적으로 사용어려움)
                  - ϵ-greedy
 
-      * Near-optimal? introduce off-policy !!
+      * Near-optimal? off-policy !!
     
            - On-policy MC with ϵ-greedy  ➔ get near-optimal policy
            - Off-policy MC with ϵ-greedy ➔ get optimal policy
   
+           ➔ DP 처럼 MC 도 optiaml policy를 보장한다!
 
+      * Good and Bad in MC
+
+           - Good : more robust to violation of Markovian property
+             (bootstrapping 안해서 그렇다.)
+  
+           - Bad : only in episodic tasks.
+  
 --- 
 
 - Monte Carlo Prediction (first-visit MC / every-visit MC)
@@ -105,11 +108,11 @@
   
       즉,
       1) on policy Monte Carlo + greedy policy + ES
-      2) on policy Monte Carlo + ϵ-greedy policy 
-
+      2) on policy Monte Carlo + ϵ-greedy policy
+  
       를 이용하는 방법들은 optimal policy가 아니라, exploration을 계속 하는 'near-optimal policy'를 구한 것이다..!
+  
       그러면, exploration은 exploration 대로 하면서, q value는 optimal한 행동들을 기반으로 추정할 수 없을까?
-
       ➔ 'off-policy' 도입!
 
       * On-policy vs Off-policy
@@ -121,13 +124,20 @@
       * 'Assumption of coverage' in off-policy learning
 
           In order to use episodes from behavior policy to estiamte values under the target policy,
-          we required that every action taken under target policy is also taken under behavior policy. 
+          we required that every action taken under target policy is also taken under behavior policy.
+          즉, 적어도 behavior policy가 target policy가 고르는 행동들을 훑어야한다는 얘기. 
 
-
-      * importance sampling
+      * Importance sampling
 
         1) ordinary importance sampling (varince)
         2) weighted importance sampling (bias) ➔ preferred!
+
+        +) discounting-aware importance sampling
+           Gt의 internal structure level에서 off policy의 variance를 줄이는 방법
+           ➔ discount factor γ 이용 
+  
+        +) per-decision importance sampling
+           discount factor γ 를 사용하지 않고도 off policy의 variance를 줄일 수 있는 방법
 
 
   
