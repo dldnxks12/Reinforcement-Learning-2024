@@ -1,31 +1,19 @@
 #### Reinforcement Learning (Sutton & Barto)
 
----
-
-- Part 1 flow :
-
-      [1] Introducing the Bandit environment and Finite MDP environment 
-      [2] Three fundamental classes of methods for solving finite MDP
-         >> Dynamic Programming 
-         >> Monte Carlo 
-         >> Temporal Difference
-
-      [3] Combining DP, MC, and TD
 
 ---
 
-- Memorize : 
-
+- Memorize 
      
    
-       * Deadly-Triad : brings instability & convergence issue.
+       1) Deadly-Triad : brings instability & convergence issue.
        
            1) bootstrapping (e.g. DP / TD)
            2) off-policy    (e.g. Q-Learning) 
            3) non-linear FA (e.g. Neural Network)
    
    
-       * confusing MDP names
+       2) confusing MDP names
        
            1) Discrete MDP (finite MDP) vs Continuous MDP (infinite MDP)
            
@@ -35,31 +23,34 @@
            2) Deterministic MDP vs Stochastic MDP
                
                Deterministic MDP => deterministic policy
-               Stochastic MDP    => stochastic policy 
+               Stochastic MDP    => stochastic policy
+
            
-   
-       * DP vs MC vs TD
+---
+
+
+- DP vs MC vs TD
+  
+
+      1) DP, MC, TD 모두 control problem은 동일하고, prediction 방법만 다름. 
       
            DP : Perfect Model (o) + Bootstrapping (o)
            MC : Perfect Model (x) + Bootstrapping (x)
            TD : Perfect Model (x) + Bootstrapping (o)
    
-   
-       * Basic approaches for reducing 'overestimation bias'
+      2) Optimal Policy
+
+          * DP (Policy Iteration, Value Iteration)
+            ➔ DP gurantees the optimal policy
+
+          * MC (First visit, Every visit)
+            ➔ MC gurantees the optimal policy
+
+          * TD (Sarsa, Q learning)
+            ➔ TD can not guarantee the optimal policy. (do converge but, not optimal)
+           
+       3) Approaches for reducing 'overestimation bias' in Q learning
    
            1. Double Q-learning or Clipped-double Q-learning
            2. Ensemble network
            3. Quantile regression
-
-      * Optimal Policy
-
-          * DP (Policy Iteration / Value Iteration)
-            ➔ We can always find the optimal policy in MDP with a greedy improvement policy.
-
-          * MC
-            ➔ We can find the optimal policy in MDP with unbiased estimation.
-
-          * TD
-            ➔ JW said, TD can not guarantee to find the optimal policy in MDP.
-
-           
