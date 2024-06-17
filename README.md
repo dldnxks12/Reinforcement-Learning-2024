@@ -1,6 +1,3 @@
-### RL with delayed feedback
+### Reinforcement Learning
 
----
-
-
-Update : 2024-3-29
+- 2024.5~

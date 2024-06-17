@@ -30,7 +30,7 @@ class BPQLAgent:  # SAC for the base learning algorithm
         self.actor_optimizer = torch.optim.Adam(self.actor.parameters(), lr=args.actor_lr)
         self.critic_optimizer = torch.optim.Adam(self.critic.parameters(), lr=args.critic_lr)
 
-        # Automated Entropy Adjustment for Maximum Entropy RL
+        # Automated Entropy Adjustment for Maximum Entropy 1.RL-Basics
         if args.automating_temperature is True:
             self.target_entropy = -torch.prod(torch.Tensor(action_space.shape)).to(device)
             self.log_alpha = torch.zeros(1, requires_grad=True, device=device)
