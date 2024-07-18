@@ -9,7 +9,7 @@
            - DP : Perfect Model; p(s', r | s, a) is known
            - MC : Perfect Model; p(s', r | s, a) is unknown
 
-      * MC Methods is also in GPI framework
+      * MC Methods is also GPI framework
   
            - Prediction (policy evaluation)
                  - First visit
@@ -19,10 +19,10 @@
                  - greedy + ES (일반적으로 사용어려움)
                  - ϵ-greedy
 
-      * Near-optimal? off-policy !!
+      * Near-optimal? use off-policy !!
     
-           - On-policy MC with ϵ-greedy  ➔ get near-optimal policy
-           - Off-policy MC with ϵ-greedy ➔ get optimal policy
+           On-policy MC with ϵ-greedy  ➔ get near-optimal policy
+           Off-policy MC with ϵ-greedy ➔ get optimal policy
   
            ➔ DP 처럼 MC 도 optiaml policy를 보장한다!
 
@@ -31,7 +31,7 @@
            - Good : more robust to violation of Markovian property
              (bootstrapping 안해서 그렇다.)
   
-           - Bad : only in episodic tasks.
+           - Bad : only usable in episodic tasks.
   
 --- 
 
@@ -52,25 +52,28 @@
       * Advantages of MC over DP.
   
         The estimation for each state is independent of other states (unlike DP).
+
         ➔ The estimation for one state does not build upon the estimation of any other state.
-        ➔ No bootstrapping
+          ➔ No bootstrapping
         ➔ The computational complexity of estimating v, q is independent to the number of states!
+          ➔ state 수가 매우 많아져도 괜찮다는 뜻.
 
 
-      * estimate v? or estimate q?
+      * 그럼 뭘 추정할까.. v? q?
 
         Under the GPI framework, we need to improve the policy over approximated v or q.
-        이를 위해서는 q를 추정하는게 더 낫다.
-        왜? v를 추정하게 되면 policy improvement할 때, transition probability 정보가 필요.. 
+        이를 위해서는 'q'를 추정하는게 더 낫다. 
+        
+        ➔ 왜? v를 추정하게 되면 policy improvement할 때, transition probability 정보가 필요.. 
             
         근데, q를 추정하면 문제가 하나 발생한다.
-        즉, 모든 state-action pair들이 다 충분히 많이 sampling되어야한다는 것.
+        ➔ 모든 state-action pair들이 다 충분히 많이 sampling 되어야한다는 것.
   
         SO?
         1) Use greedy policy + exploring starts (ES)
         2) Use ϵ-greedy policy
 
-            * ϵ-greedy is a family of soft-policy
+            * ϵ-greedy is a family of soft-policy.
               ϵ-greedy is a soft-policy that is close to greedy.
 
 
@@ -99,7 +102,7 @@
       따라서, ES를 이용하는데, 이게 일반적으로 적용하기 힘든 방법이다.
       (Random 리스폰을 기반으로 하기에, 환경과 actual intraction을 한다면 적용이 힘듦)
 
-      ➔ 이에 대한 대안으로, soft greedy policy 를 이용할 수 있다.
+      ➔ 이에 대한 대안으로, soft greedy policy family 를 이용할 수 있다.
 
       # problem 2)
   
@@ -127,16 +130,16 @@
           we required that every action taken under target policy is also taken under behavior policy.
           즉, 적어도 behavior policy가 target policy가 고르는 행동들을 훑어야한다는 얘기. 
 
-      * Importance sampling
+      * Off policy를 위한 Importance sampling 종류도 몇 가지 있다.
 
-        1) ordinary importance sampling (varince)
-        2) weighted importance sampling (bias) ➔ preferred!
+        1) ordinary importance sampling (varince 有)
+        2) weighted importance sampling (bias 有) ➔ preferred!
 
-        +) discounting-aware importance sampling
+        + 3) discounting-aware importance sampling
            Gt의 internal structure level에서 off policy의 variance를 줄이는 방법
            ➔ discount factor γ 이용 
   
-        +) per-decision importance sampling
+        + 4) per-decision importance sampling
            discount factor γ 를 사용하지 않고도 off policy의 variance를 줄일 수 있는 방법
 
 

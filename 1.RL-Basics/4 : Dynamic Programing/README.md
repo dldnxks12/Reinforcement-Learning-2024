@@ -38,14 +38,15 @@
         = (Policy evaluation + Policy improvement) 반복
 
 
-      * Policy Evaluation : v(k) ➔ v(k+1) 
-        ➔ Iterative policy evaluation
+      * Policy Evaluation : v(k) ➔ v(k+1)
         ➔ v(k) converges to v(π), as k ➔ ∞
         ➔ v(π) exist and is unique (c.f., Ok's lecture)
+          ➔ Bellman Operator 'B' is a contraction mapping!
      
       * Policy Improvement : π(k) ➔ π(k+1)
-        ➔ greedy policy (meets policy improvement theorem)
-        ➔ soft-greedy policy (meets policy improvement theorem)
+        ➔ greedy policy 
+        ➔ soft-greedy policy 
+          ➔ policies that meet policy improvement theorem (monotonic improvement)
 
 
 - Convergence of Dynamic Programming 
@@ -54,16 +55,16 @@
       *************************************************************************
       * Convergence to optimal policy
   
-      이 iteration들은 contraction mapping이다.
+      1) contraction mapping이다.
         ➔ unique solution 보장.
-      이 iteration들은 monotonic improvment를 보장한다.
+      2) monotonic improvment를 보장한다.
         ➔ optimal solution을 보장.
 
-      즉, 이 iteration들을 계속하면 optimal π 그리고 optimal v로 수렴.  
-      *************************************************************************
+      즉, 위 성질을 가진 iteration들을 계속하면 optimal π 그리고 optimal v로 수렴 !
+      
+      * contraction mapping? monotonic improvment?
 
-      *************************************************************************
-      * Bellman Operator B is a 'Contraction Mapping'.  
+      Bellman Operator B is a 'Contraction Mapping'.  
           ➔ Contraction Mapping implies..
             1) Convergence 
             2) Uniqueness
@@ -77,10 +78,9 @@
 
       *************************************************************************
 
-      *************************************************************************
-
       RL은 GPI framework를 따른다. 
-      DP를 이용한 GPI는 convergence가 증명이 되어있다. 하지만, 다른 방법을 이용한 GPI는 아직...
+      DP를 이용한 GPI는 optimal로의 convergence가 증명이 되어있다. 
+      하지만, 다른 방법을 이용한 GPI는 아직..
 
       *************************************************************************
 
